@@ -3,6 +3,7 @@ package com.automatoDev.locadora.model;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -53,6 +54,10 @@ public class Aluguel {
     @JsonIgnoreProperties("alugueis")
     private Carro carro;
 
+    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
+    @JoinColumn(name = "id_motorista")
+    @JsonIgnoreProperties(value = "alugueis")
+    private Motorista motorista;
 
 
     public void setIdAlugel(Long idAluguel){
@@ -109,6 +114,14 @@ public class Aluguel {
 
     public ApoliceSeguro getApolice(){
         return this.apolice;
+    }
+
+    public void setMotorista(Motorista motorista){
+        this.motorista = motorista;
+    }
+
+    public Motorista getMotorista(){
+        return this.motorista;
     }
     
 }

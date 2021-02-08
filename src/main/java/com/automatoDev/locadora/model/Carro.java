@@ -50,7 +50,7 @@ public class Carro {
 	@JsonIgnoreProperties("carros")
 	private Modelo modelo;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
+	@ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.PERSIST, CascadeType.MERGE, CascadeType.REMOVE})
 	@JoinTable(name = "tb_carro_acessorio"
 	, joinColumns = {@JoinColumn(name = "id_carro")}
 	, inverseJoinColumns = {@JoinColumn(name  = "id_acessorio")})
