@@ -38,7 +38,6 @@ public class Modelo {
 	private String nomeModelo;
 
 	@Enumerated(EnumType.STRING)
-	@NotBlank
 	private Categoria categoria;
 
 	@ManyToOne

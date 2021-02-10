@@ -54,7 +54,7 @@ public class Aluguel {
     @JsonIgnoreProperties("alugueis")
     private Carro carro;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "id_motorista")
     @JsonIgnoreProperties(value = "alugueis")
     private Motorista motorista;
